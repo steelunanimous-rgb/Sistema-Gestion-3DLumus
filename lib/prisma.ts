@@ -2,10 +2,10 @@ import { PrismaClient } from '@prisma/client'
 
 const prismaClientOptions: any = {}
 
-const dbUrl = process.env.DATABASE_URL || process.env.POSTGRES_URL;
+const dbUrl = process.env.ORACLE_DATABASE_URL || process.env.DATABASE_URL;
 
 if (!dbUrl) {
-    console.warn("CRITICAL: Neither DATABASE_URL nor POSTGRES_URL is defined!");
+    console.warn("DEBUG: No DB URL found in any expected variable");
 } else {
     prismaClientOptions.datasources = {
         db: {
