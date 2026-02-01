@@ -2,6 +2,8 @@ import { NextResponse } from 'next/server'
 import { orderService } from '@/services/order.service'
 import { orderSchema } from '@/lib/validations/order'
 
+export const dynamic = 'force-dynamic'
+
 export async function GET() {
     try {
         const data = await orderService.getAllOrders()

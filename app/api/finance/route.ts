@@ -2,6 +2,8 @@ import { NextResponse } from 'next/server'
 import { financeService } from '@/services/finance.service'
 import { transactionSchema } from '@/lib/validations/transaction'
 
+export const dynamic = 'force-dynamic'
+
 export async function GET() {
     try {
         const data = await financeService.getAllTransactions()

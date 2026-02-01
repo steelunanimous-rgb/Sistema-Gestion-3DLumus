@@ -2,6 +2,8 @@ import { NextResponse } from 'next/server'
 import { customerService } from '@/services/customer.service'
 import { customerSchema } from '@/lib/validations/customer'
 
+export const dynamic = 'force-dynamic'
+
 export async function GET() {
     try {
         const data = await customerService.getAllCustomers()

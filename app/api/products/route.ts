@@ -2,6 +2,8 @@ import { NextRequest, NextResponse } from 'next/server'
 import { productService } from '@/services/product.service'
 import { createProductSchema } from '@/lib/validations/product'
 
+export const dynamic = 'force-dynamic'
+
 /**
  * GET /api/products
  * Obtener todos los productos y estadísticas
