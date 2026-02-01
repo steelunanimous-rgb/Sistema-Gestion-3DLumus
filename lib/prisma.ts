@@ -2,10 +2,10 @@ import { PrismaClient } from '@prisma/client'
 
 const prismaClientOptions: any = {}
 
-const dbUrl = process.env.ORACLE_DATABASE_URL || process.env.DATABASE_URL;
+const dbUrl = process.env.DATABASE_URL;
 
 if (!dbUrl) {
-    console.warn("DEBUG: No DB URL found in any expected variable");
+    console.warn("Prisma: DATABASE_URL not found");
 } else {
     prismaClientOptions.datasources = {
         db: {

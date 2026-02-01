@@ -6,6 +6,10 @@ const nextConfig = {
     eslint: {
         ignoreDuringBuilds: true,
     },
+    env: {
+        ORACLE_DATABASE_URL: process.env.ORACLE_DATABASE_URL,
+        DATABASE_URL: process.env.DATABASE_URL,
+    }
 };
 
 export default nextConfig;
