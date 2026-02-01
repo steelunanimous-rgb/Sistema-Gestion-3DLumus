@@ -5,13 +5,23 @@ import { Plus, Search, User, ShoppingBag, DollarSign, Edit, Trash2, Loader2 } fr
 import CustomerModal from '@/components/customers/CustomerModal'
 import { formatCurrency, formatDate } from '@/lib/utils'
 
+interface Customer {
+    id: string
+    name: string
+    phone: string
+    socialMedia: string
+    orderCount: number
+    totalSpent: number
+    lastOrder: string | null
+}
+
 export default function ClientesPage() {
-    const [customers, setCustomers] = useState([])
+    const [customers, setCustomers] = useState<Customer[]>([])
     const [stats, setStats] = useState({ totalCustomers: 0, activeCustomers: 0, averageValue: 0 })
     const [loading, setLoading] = useState(true)
     const [searchTerm, setSearchTerm] = useState('')
     const [isModalOpen, setIsModalOpen] = useState(false)
-    const [editingCustomer, setEditingCustomer] = useState(null)
+    const [editingCustomer, setEditingCustomer] = useState<Customer | null>(null)
 
     const fetchData = useCallback(async () => {
         try {

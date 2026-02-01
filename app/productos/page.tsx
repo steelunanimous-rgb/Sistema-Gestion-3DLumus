@@ -208,7 +208,7 @@ export default function ProductosPage() {
     )
 }
 
-function StatCardSmall({ icon, title, value }) {
+function StatCardSmall({ icon, title, value }: { icon: React.ReactNode, title: string, value: string | number }) {
     return (
         <div className="card p-4 flex items-center gap-3">
             <div className="p-2 rounded-lg bg-bg-secondary">{icon}</div>
