@@ -17,7 +17,7 @@ export async function middleware(request: NextRequest) {
     // 2. Protect all other routes
     if (!session) {
         // Check if it's an API route or a page
-        if (pathname.startsWith('/api') && !pathname.startsWith('/api/auth')) {
+        if (pathname.startsWith('/api') && !pathname.startsWith('/api/auth') && !pathname.startsWith('/api/debug')) {
             return NextResponse.json({ error: 'No autorizado' }, { status: 401 })
         }
 
