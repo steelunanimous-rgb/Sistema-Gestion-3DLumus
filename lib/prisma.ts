@@ -2,12 +2,14 @@ import { PrismaClient } from '@prisma/client'
 
 const prismaClientOptions: any = {}
 
-if (!process.env.DATABASE_URL) {
-    console.warn("CRITICAL: DATABASE_URL is not defined in environment variables!");
+const dbUrl = process.env.DATABASE_URL || process.env.POSTGRES_URL;
+
+if (!dbUrl) {
+    console.warn("CRITICAL: Neither DATABASE_URL nor POSTGRES_URL is defined!");
 } else {
     prismaClientOptions.datasources = {
         db: {
-            url: process.env.DATABASE_URL,
+            url: dbUrl,
         },
     }
 }
