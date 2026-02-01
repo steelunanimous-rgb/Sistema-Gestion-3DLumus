@@ -58,7 +58,7 @@ export default function PedidosPage() {
         fetchData()
     }
 
-    const filtered = orders.filter(o =>
+    const filtered = orders.filter((o: any) =>
         o.customer.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
         o.id.includes(searchTerm)
     )

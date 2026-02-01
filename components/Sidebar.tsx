@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import {
     LayoutDashboard,
@@ -67,7 +68,13 @@ export default function Sidebar() {
                 <div className="flex flex-col h-full">
                     {/* Logo */}
                     <div className="p-6 border-b border-border-subtle">
-                        <img src="/logo_full.png" alt="3DBOX Logo" className="h-10 w-auto" />
+                        <Image
+                            src="/logo_full.png"
+                            alt="3DBOX Logo"
+                            width={160}
+                            height={40}
+                            className="h-10 w-auto"
+                        />
                         <p className="text-[10px] text-text-muted mt-2 uppercase tracking-widest font-bold">Sistema de Gestión</p>
                     </div>
 

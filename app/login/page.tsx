@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react'
 import { useRouter } from 'next/navigation'
+import Image from 'next/image'
 import { Lock, Mail, ArrowRight, Loader2, Sparkles } from 'lucide-react'
 
 export default function LoginPage() {
@@ -45,7 +46,14 @@ export default function LoginPage() {
                 {/* Brand Header */}
                 <div className="flex flex-col items-center mb-10">
                     <div className="mb-6 transform hover:scale-105 transition-transform duration-500">
-                        <img src="/logo_full.png" alt="3DBOX Logo" className="h-20 w-auto drop-shadow-[0_0_15px_rgba(247,147,26,0.3)]" />
+                        <Image 
+                            src="/logo_full.png" 
+                            alt="3DBOX Logo" 
+                            width={320} 
+                            height={80} 
+                            className="h-20 w-auto drop-shadow-[0_0_15px_rgba(247,147,26,0.3)]" 
+                            priority 
+                        />
                     </div>
                 </div>
 

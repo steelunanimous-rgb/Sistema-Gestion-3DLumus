@@ -11,7 +11,7 @@ import { formatCurrency } from '@/lib/utils'
 const COLORS = ['#F7931A', '#FBB040', '#3DD598', '#FF6B6B', '#FFC542']
 
 export default function AnaliticasPage() {
-    const [data, setData] = useState(null)
+    const [data, setData] = useState<any>(null)
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
@@ -80,7 +80,7 @@ export default function AnaliticasPage() {
                                 label={({ name, margin }) => `${name}: ${margin}%`}
                                 outerRadius={80} dataKey="margin"
                             >
-                                {productPerformance.map((_, index) => (
+                                {productPerformance.map((_: any, index: number) => (
                                     <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                                 ))}
                             </Pie>
@@ -94,7 +94,7 @@ export default function AnaliticasPage() {
                 <div className="card">
                     <h2 className="text-lg font-semibold text-text-primary mb-4">Ventas por Plataforma</h2>
                     <div className="space-y-6">
-                        {platformDistribution.map((p, index) => (
+                        {platformDistribution.map((p: any, index: number) => (
                             <div key={index}>
                                 <div className="flex justify-between mb-2">
                                     <span className="text-sm font-medium capitalize">{p.platform}</span>
@@ -126,7 +126,7 @@ export default function AnaliticasPage() {
     )
 }
 
-function StatCard({ icon, title, value }) {
+function StatCard({ icon, title, value }: { icon: React.ReactNode, title: string, value: string }) {
     return (
         <div className="card flex items-center gap-4">
             <div className="p-4 rounded-xl bg-bg-secondary">{icon}</div>

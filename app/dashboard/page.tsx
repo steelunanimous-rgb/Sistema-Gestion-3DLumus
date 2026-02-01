@@ -6,7 +6,7 @@ import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianG
 import { formatCurrency } from '@/lib/utils'
 
 export default function DashboardPage() {
-    const [data, setData] = useState(null)
+    const [data, setData] = useState<any>(null)
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
@@ -77,7 +77,7 @@ export default function DashboardPage() {
                             </tr>
                         </thead>
                         <tbody className="divide-y divide-border-subtle">
-                            {recentOrders.map(o => (
+                            {recentOrders.map((o: any) => (
                                 <tr key={o.id} className="hover:bg-bg-secondary/20 transition-colors">
                                     <td className="px-8 py-5 font-mono text-xs text-text-muted">{o.id.slice(0, 8)}</td>
                                     <td className="px-8 py-5 font-semibold">{o.customer.name}</td>
@@ -93,7 +93,7 @@ export default function DashboardPage() {
     )
 }
 
-function StatCard({ icon, title, value, trend }) {
+function StatCard({ icon, title, value, trend }: { icon: React.ReactNode, title: string, value: string | number, trend: string }) {
     return (
         <div className="card p-6 flex items-start gap-4 transform hover:scale-[1.02] transition-all duration-300">
             <div className="p-4 rounded-2xl bg-bg-secondary shadow-inner">{icon}</div>
@@ -106,7 +106,7 @@ function StatCard({ icon, title, value, trend }) {
     )
 }
 
-function PlatformRow({ name, percent, color }) {
+function PlatformRow({ name, percent, color }: { name: string, percent: number, color: string }) {
     return (
         <div className="space-y-2">
             <div className="flex justify-between text-xs font-bold uppercase tracking-tighter">
